@@ -1,10 +1,9 @@
 import Container from 'react-bootstrap/Container'
-import { useQuery } from 'react-query'
-import TheMovieDBAPI from '../services/TheMovieDBAPI'
+import useGenres from '../hooks/useGenres'
 
 const HomePage = () => {
 
-	const { data, error } = useQuery('genres', TheMovieDBAPI.getGenres)
+	const { data, error } = useGenres()
 
 	return (
 		<Container className="py-3">
