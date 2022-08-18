@@ -1,7 +1,9 @@
 import Container from 'react-bootstrap/Container'
 import AlertBox from '../components/AlertBox'
+import FilterBox from '../components/FilterBox'
 import LoadingSpinner from '../components/LoadingSpinner'
 import useGenres from '../hooks/useGenres'
+import { Outlet } from 'react-router-dom'
 
 const HomePage = () => {
 
@@ -19,9 +21,22 @@ const HomePage = () => {
 			{
 				isError && <AlertBox variant={'danger'} message={error.message} />
 			}
-			
+
 			{
-				genres && genres.genres.map( genre => <p key={genre.id}>{genre.name}</p> )
+				// genres && genres.genres.map( genre => <p key={genre.id}>{genre.name}</p> )
+			}
+
+			{
+				genres && (
+					<div>
+						<header>
+							<FilterBox genres={genres.genres} />
+						</header>
+						<main>
+							<Outlet />
+						</main>
+					</div>
+				)
 			}
 
 		</Container>
