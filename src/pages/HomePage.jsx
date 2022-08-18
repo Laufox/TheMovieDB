@@ -3,7 +3,8 @@ import useGenres from '../hooks/useGenres'
 
 const HomePage = () => {
 
-	const { data, error } = useGenres()
+	// Get query data from useGenre hook
+	const { data: genres, error } = useGenres()
 
 	return (
 		<Container className="py-3">
@@ -14,7 +15,7 @@ const HomePage = () => {
 				)
 			}
 			{
-				data && data.genres.map( genre => <p key={genre.id}>{genre.name}</p> )
+				genres && genres.genres.map( genre => <p key={genre.id}>{genre.name}</p> )
 			}
 		</Container>
 	)
