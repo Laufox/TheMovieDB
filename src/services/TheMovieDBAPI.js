@@ -16,9 +16,21 @@ const getGenres = async () => {
     return respons.data
 }
 
+/**
+ * Function that returns array of movies from a specific genre
+ */
+const discoverGenre = async (genreId, page = 1) => {
+
+    const respons = await axios.get(`/discover/movie?api_key=${apiKey}&include_adult=false&with_genres=${genreId}&page=${page}`)
+
+    return respons.data
+
+}
+
 // Functions available to use in other files
 const exports = {
     getGenres,
+    discoverGenre,
 }
 
 export default exports
