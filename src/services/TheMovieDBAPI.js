@@ -10,6 +10,7 @@ const apiKey = import.meta.env.VITE_TMDB_API_KEY
  * Function that returns movie genres from API
  */
 const getGenres = async () => {
+    
     const respons = await axios.get(`/genre/movie/list?api_key=${apiKey}&language=en-US`)
 
     return respons.data
