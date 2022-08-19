@@ -12,7 +12,7 @@ function App() {
 
 			<Routes>
 				<Route path="/" element={<HomePage />}>
-					<Route path='/genre/:id' element={<GenreList />} />
+					<Route path='/genre/:id/:genre' element={<GenreList />} />
 				</Route>
 				<Route path="*" element={<NotFound />} />
 			</Routes>

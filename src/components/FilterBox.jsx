@@ -8,7 +8,7 @@ const FilterBox = ( { genres } ) => {
             {
                 genres.map(genre => (
                     <ListGroup.Item key={genre.id}>
-                        <Link to={`/genre/${genre.id}`}>{genre.name}</Link>
+                        <Link to={`/genre/${genre.id}/${genre.name.replace(/\s/g, '-').toLowerCase()}`}>{genre.name}</Link>
                     </ListGroup.Item>
                 ))
             }
