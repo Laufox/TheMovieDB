@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom"
+import { useParams, useSearchParams } from "react-router-dom"
 import useDiscoverByGenre from "../hooks/useDiscoverByGenre"
 import Card from 'react-bootstrap/Card'
 import Container from "react-bootstrap/Container"
@@ -7,7 +7,8 @@ import Button from 'react-bootstrap/Button'
 
 const GenreList = () => {
 
-    const [page, setPage] = useState(1)
+    const [searchParams, setSearchparams] = useSearchParams()
+    const [page, setPage] = useState(Number(searchParams.get("page")))
     const { id, genre } = useParams()
     const { data: movies, error, isError, isLoading } = useDiscoverByGenre(id, page)
 
@@ -43,21 +44,26 @@ const GenreList = () => {
                         </div>
                         
                         <Button 
-                            onClick={()=>{setPage( prevPage => prevPage - 1 )}}
+                            onClick={()=>{
+                                setSearchparams({page: page - 1})
+                                setPage( prevPage => prevPage - 1 )
+                            }}
                             disabled = { page <= 1 }
                         >
                             prev page
                         </Button>
                         <p>You are on page: {page}/{movies.total_pages}</p>
                         <Button 
-                            onClick={()=>{setPage( prevPage => prevPage + 1 )}}
+                            onClick={()=>{
+                                setSearchparams({page: page + 1})
+                                setPage( prevPage => prevPage + 1 )
+                            }}
                             disabled = { page >= movies.total_pages }
                         >
                             next page
                         </Button>
                     </Container>
                     
-
                 )
             }
 
