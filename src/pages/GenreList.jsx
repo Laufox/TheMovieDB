@@ -42,8 +42,19 @@ const GenreList = () => {
                             }
                         </div>
                         
-                        <Button onClick={()=>{setPage( prevPage => prevPage - 1 )}}>prev page</Button>
-                        <Button onClick={()=>{setPage( prevPage => prevPage + 1 )}}>next page</Button>
+                        <Button 
+                            onClick={()=>{setPage( prevPage => prevPage - 1 )}}
+                            disabled = { page <= 1 }
+                        >
+                            prev page
+                        </Button>
+                        <p>You are on page: {page}/{movies.total_pages}</p>
+                        <Button 
+                            onClick={()=>{setPage( prevPage => prevPage + 1 )}}
+                            disabled = { page >= movies.total_pages }
+                        >
+                            next page
+                        </Button>
                     </Container>
                     
 
