@@ -6,6 +6,7 @@ import './assets/scss/App.scss'
 import GenreList from './pages/GenreList'
 import Latest from './pages/Latest'
 import Popular from './pages/Popular'
+import TopRated from './pages/TopRated'
 
 function App() {
 	return (
@@ -17,6 +18,7 @@ function App() {
 					<Route path='/genre/:id/:genre' element={<GenreList />} />
 					<Route path='/new' element={<Latest />} />
 					<Route path='/popular' element={<Popular />} />
+					<Route path='/toprated' element={<TopRated />} />
 				</Route>
 				<Route path="*" element={<NotFound />} />
 			</Routes>

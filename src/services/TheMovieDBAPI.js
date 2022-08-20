@@ -43,12 +43,21 @@ const discoverPopular = async (page = 1) => {
 
 }
 
+const discoverTopRated = async (page=1) => {
+
+    const respons = await axios.get(`/discover/movie?api_key=${apiKey}&include_adult=false&sort_by=vote_average.desc&page=${page}`)
+
+    return respons.data
+
+}
+
 // Functions available to use in other files
 const exports = {
     getGenres,
     discoverGenre,
     discoverLatest,
     discoverPopular,
+    discoverTopRated,
 }
 
 export default exports
