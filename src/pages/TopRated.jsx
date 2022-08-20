@@ -24,7 +24,7 @@ const TopRated = () => {
     return (
 
         <>
-            <h2>Showing most recent movies </h2>
+            <h2>Showing the highest rated movies </h2>
 
             {
                 isLoading && (

@@ -24,7 +24,7 @@ const Popular = () => {
     return (
 
         <>
-            <h2>Showing most recent movies </h2>
+            <h2>Showing most popular movies </h2>
 
             {
                 isLoading && (

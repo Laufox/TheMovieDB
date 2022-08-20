@@ -45,7 +45,7 @@ const discoverPopular = async (page = 1) => {
 
 const discoverTopRated = async (page=1) => {
 
-    const respons = await axios.get(`/discover/movie?api_key=${apiKey}&include_adult=false&sort_by=vote_average.desc&page=${page}`)
+    const respons = await axios.get(`/movie/top_rated?api_key=${apiKey}&page=${page}`)
 
     return respons.data
 
