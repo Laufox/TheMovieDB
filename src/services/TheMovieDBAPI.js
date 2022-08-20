@@ -27,10 +27,19 @@ const discoverGenre = async (genreId, page = 1) => {
 
 }
 
+const discoverLatest = async (page = 1) => {
+
+    const respons = await axios.get(`/discover/movie?api_key=${apiKey}&include_adult=false&sort_by=release_date.desc&page=${page}`)
+
+    return respons.data
+
+}
+
 // Functions available to use in other files
 const exports = {
     getGenres,
     discoverGenre,
+    discoverLatest,
 }
 
 export default exports
