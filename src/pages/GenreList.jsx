@@ -2,8 +2,8 @@ import { useParams, useSearchParams } from "react-router-dom"
 import useDiscoverByGenre from "../hooks/useDiscoverByGenre"
 import Card from 'react-bootstrap/Card'
 import Container from "react-bootstrap/Container"
-import { useState } from "react"
-import Button from 'react-bootstrap/Button'
+import { useState, useEffect } from "react"
+import Pagination from "../components/Pagination"
 
 const GenreList = () => {
 
@@ -11,6 +11,16 @@ const GenreList = () => {
     const [page, setPage] = useState(Number(searchParams.get("page")))
     const { id, genre } = useParams()
     const { data: movies, error, isError, isLoading } = useDiscoverByGenre(id, page)
+
+    const handlePageClick = (increment) => {
+        setSearchparams({ page: page + increment })
+    }
+
+    useEffect( () => {
+        
+        setPage(Number(searchParams.get("page")))
+
+    } )
 
     return (
 
@@ -33,6 +43,7 @@ const GenreList = () => {
                 movies && (
                     
                     <Container>
+                        
                         <div className="movie-container">
                             {
                                 movies.results.map( movie => (
@@ -42,26 +53,9 @@ const GenreList = () => {
                                 ) )
                             }
                         </div>
-                        
-                        <Button 
-                            onClick={()=>{
-                                setSearchparams({page: page - 1})
-                                setPage( prevPage => prevPage - 1 )
-                            }}
-                            disabled = { page <= 1 }
-                        >
-                            prev page
-                        </Button>
-                        <p>You are on page: {page}/{movies.total_pages}</p>
-                        <Button 
-                            onClick={()=>{
-                                setSearchparams({page: page + 1})
-                                setPage( prevPage => prevPage + 1 )
-                            }}
-                            disabled = { page >= movies.total_pages }
-                        >
-                            next page
-                        </Button>
+
+                        <Pagination onPageClick = { handlePageClick } currentPage = { page } totalPages = { movies.total_pages } />
+
                     </Container>
                     
                 )
