@@ -11,6 +11,31 @@
     gap: 10px;
 
     .movie-container-item {
-        min-width: 350px;
+        width: 24%;
+
+        .card-body {
+
+            display: flex;
+            flex-flow: column;
+            min-height: 250px;
+
+            .movie-heading {
+                flex-grow: 1;
+                font-size: 1.5rem;
+            }
+    
+            .additional-info {
+    
+                display: flex;
+                justify-content: space-evenly;
+    
+                span {
+                    font-size: 1.4rem;
+                }
+                
+            }
+
+        }
+        
     }
 }
