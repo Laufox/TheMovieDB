@@ -1,9 +1,9 @@
 import { useSearchParams } from "react-router-dom"
 import useDiscoverLatest from "../hooks/useDiscoverLatest"
-import Card from 'react-bootstrap/Card'
 import Container from "react-bootstrap/Container"
 import { useState, useEffect } from "react"
 import Pagination from "../components/Pagination"
+import MovieCard from "../components/MovieCard"
 
 const Latest = () => {
 
@@ -46,9 +46,7 @@ const Latest = () => {
                         <div className="movie-container">
                             {
                                 movies.results.map( movie => (
-                                    <Card key={movie.id} className="movie-container-item">
-                                        <Card.Body>{movie.title}</Card.Body>
-                                    </Card>
+                                    <MovieCard key={movie.id} movie={movie} />
                                 ) )
                             }
                         </div>
