@@ -7,6 +7,7 @@ import GenreList from './pages/GenreList'
 import Latest from './pages/Latest'
 import Popular from './pages/Popular'
 import TopRated from './pages/TopRated'
+import MoviePage from './pages/MoviePage'
 
 function App() {
 	return (
@@ -19,6 +20,7 @@ function App() {
 					<Route path='/new' element={<Latest />} />
 					<Route path='/popular' element={<Popular />} />
 					<Route path='/toprated' element={<TopRated />} />
+					<Route path='/movie/:id' element={<MoviePage />} />
 				</Route>
 				<Route path="*" element={<NotFound />} />
 			</Routes>

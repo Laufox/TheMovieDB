@@ -51,6 +51,14 @@ const discoverTopRated = async (page=1) => {
 
 }
 
+const getOneMovie = async (id) => {
+
+    const respons = await axios.get(`/movie/${id}?api_key=${apiKey}&append_to_response=credits`)
+
+    return respons.data
+
+}
+
 // Functions available to use in other files
 const exports = {
     getGenres,
@@ -58,6 +66,7 @@ const exports = {
     discoverLatest,
     discoverPopular,
     discoverTopRated,
+    getOneMovie,
 }
 
 export default exports

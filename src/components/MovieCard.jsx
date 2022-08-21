@@ -1,10 +1,11 @@
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+import { Link } from 'react-router-dom'
 
 const MovieCard = ( { movie } ) => {
 
     return (
-        <Card key={movie.id} className="movie-container-item">
+        <Card className="movie-container-item">
             <Card.Body className="card-body">
                                                 
                 <Card.Title className="movie-heading">{movie.title}</Card.Title>
@@ -16,7 +17,7 @@ const MovieCard = ( { movie } ) => {
                     <span>|</span>
                     <span>{movie.vote_average}</span>
                 </Card.Text>
-                <Button>Go to</Button>
+                <Button as={Link} to={`/movie/${movie.id}`}>Go to</Button>
 
             </Card.Body>
         </Card>
