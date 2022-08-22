@@ -1,12 +1,27 @@
 import { Link, useParams } from "react-router-dom"
 import useGetMovie from "../hooks/useGetMovie"
 import Card from 'react-bootstrap/Card'
-import ListGroup from 'react-bootstrap/ListGroup' 
+import ListGroup from 'react-bootstrap/ListGroup'
+import { useEffect } from "react"
 
-const MoviePage = () => {
+const MoviePage = ({onAddMovieToLatest}) => {
 
     const { id } = useParams()
     const { data: movie, error, isError, isLoading } = useGetMovie(id)
+
+    useEffect( () => {
+
+        let currentLocalItems = JSON.parse(window.localStorage.getItem("test"))
+        console.log(currentLocalItems)
+        if (currentLocalItems) {
+            currentLocalItems = [...currentLocalItems, id]
+        } else {
+            currentLocalItems = [id]
+        }
+        
+        window.localStorage.setItem("test", JSON.stringify(currentLocalItems))
+
+    }, [] )
 
     return (
 
@@ -27,6 +42,7 @@ const MoviePage = () => {
             {
                 movie && (
                     <>
+                        {}
                         <Card>
                             <Card.Body>
 

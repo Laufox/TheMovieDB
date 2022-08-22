@@ -34,6 +34,9 @@ const HomePage = () => {
 						</header>
 						<main>
 							<Outlet />
+							<aside>
+								latest seen movies will be here
+							</aside>
 						</main>
 					</div>
 				)
