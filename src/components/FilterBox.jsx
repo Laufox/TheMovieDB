@@ -2,15 +2,18 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import { Link, useNavigate } from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import { useState, useRef } from 'react'
 
 const FilterBox = ( { genres } ) => {
 
+    const [searchInput, setSearchInput] = useState('')
+    const searchRef = useRef()
     const navigate = useNavigate()
 
     const handleSubmit = (e) => {
 
         e.preventDefault()
-        navigate('/search')
+        navigate(`/search?query=${searchInput}&page=1`)
 
     }
     
@@ -44,7 +47,7 @@ const FilterBox = ( { genres } ) => {
             </ListGroup>
 
             <Form onSubmit={handleSubmit}>
-                <Form.Control required type='text' />
+                <Form.Control required type='text' onChange={ e => setSearchInput(e.target.value) } ref={ searchRef } />
                 <Button type='submit'>Search</Button>
             </Form>
 

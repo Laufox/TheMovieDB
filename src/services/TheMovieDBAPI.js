@@ -67,6 +67,14 @@ const getOneActor = async (id) => {
 
 }
 
+const searchMovie = async(query, page) => {
+
+    const respons = await axios.get(`/search/movie?api_key=${apiKey}&include_adult=false&query=${query}&page=${page}`)
+
+    return respons.data
+
+}
+
 // Functions available to use in other files
 const exports = {
     getGenres,
@@ -76,6 +84,7 @@ const exports = {
     discoverTopRated,
     getOneMovie,
     getOneActor,
+    searchMovie,
 }
 
 export default exports
