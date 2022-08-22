@@ -1,6 +1,7 @@
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import useGetMovie from "../hooks/useGetMovie"
 import Card from 'react-bootstrap/Card'
+import ListGroup from 'react-bootstrap/ListGroup' 
 
 const MoviePage = () => {
 
@@ -34,11 +35,11 @@ const MoviePage = () => {
                                 { movie.overview }
                             </Card.Text>
 
-                            <ul>
+                            <ListGroup>
                                 {
-                                    movie.credits.cast.map( (actor) => <li key={actor.id}>{actor.name}</li> )
+                                    movie.credits.cast.map( (actor) => <ListGroup.Item key={actor.id} as={Link} to={`/actor/${actor.id}`} >{actor.name}</ListGroup.Item> )
                                 }
-                            </ul>
+                            </ListGroup>
                             
                         </Card.Body>
                     </Card>
