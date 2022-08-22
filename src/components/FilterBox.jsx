@@ -1,7 +1,18 @@
 import ListGroup from 'react-bootstrap/ListGroup'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 const FilterBox = ( { genres } ) => {
+
+    const navigate = useNavigate()
+
+    const handleSubmit = (e) => {
+
+        e.preventDefault()
+        navigate('/search')
+
+    }
     
     return (
         <>
@@ -31,6 +42,11 @@ const FilterBox = ( { genres } ) => {
                 </ListGroup.Item>
 
             </ListGroup>
+
+            <Form onSubmit={handleSubmit}>
+                <Form.Control required type='text' />
+                <Button type='submit'>Search</Button>
+            </Form>
 
         </>
     )
