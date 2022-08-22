@@ -26,23 +26,37 @@ const MoviePage = () => {
 
             {
                 movie && (
-                    <Card>
-                        <Card.Body>
+                    <>
+                        <Card>
+                            <Card.Body>
 
-                            <Card.Title>{movie.title}</Card.Title>
-                            <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} />
-                            <Card.Text>
-                                { movie.overview }
-                            </Card.Text>
+                                <Card.Title>{movie.title}</Card.Title>
+                                <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} />
+                                <Card.Text>
+                                    { movie.overview }
+                                </Card.Text>
 
-                            <ListGroup>
+                                <ListGroup>
+                                    {
+                                        movie.credits.cast.map( (actor) => <ListGroup.Item key={actor.id} as={Link} to={`/actor/${actor.id}`} >{actor.name}</ListGroup.Item> )
+                                    }
+                                </ListGroup>
+                                
+                            </Card.Body>
+                        </Card>
+
+                        <section>
+                            <header>
+                                <h3>Related movies</h3>
+                            </header>
+                            <main>
                                 {
-                                    movie.credits.cast.map( (actor) => <ListGroup.Item key={actor.id} as={Link} to={`/actor/${actor.id}`} >{actor.name}</ListGroup.Item> )
+                                    movie.similar.results.map( relMovie => <p key={relMovie.id}>{relMovie.title}</p> )
                                 }
-                            </ListGroup>
-                            
-                        </Card.Body>
-                    </Card>
+                            </main>
+                        </section>
+                    </>
+                    
                 )
             }
 

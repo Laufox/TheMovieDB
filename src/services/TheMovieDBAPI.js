@@ -53,7 +53,7 @@ const discoverTopRated = async (page=1) => {
 
 const getOneMovie = async (id) => {
 
-    const respons = await axios.get(`/movie/${id}?api_key=${apiKey}&append_to_response=credits`)
+    const respons = await axios.get(`/movie/${id}?api_key=${apiKey}&append_to_response=credits,similar`)
 
     return respons.data
 
