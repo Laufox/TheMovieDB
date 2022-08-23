@@ -75,6 +75,37 @@ const searchMovie = async(query, page) => {
 
 }
 
+const getLatestViewedMovies = () => {
+
+    return JSON.parse(window.localStorage.getItem("test"))
+
+}
+
+const addToLatestViewedMovies = async (movieId) => {
+
+    let currentLocalItems = JSON.parse(window.localStorage.getItem("test"))
+    console.log(currentLocalItems)
+
+    if ( currentLocalItems && currentLocalItems.find( item => Number(item.id) === Number(movieId) ) ) {
+        return
+    }
+
+    let movie = await axios.get(`/movie/${movieId}?api_key=${apiKey}&append_to_response=credits,similar`)
+
+    if (currentLocalItems) {
+        if (currentLocalItems.length >= 10) {
+            currentLocalItems[0] = movie.data
+        } else {
+            currentLocalItems = [...currentLocalItems, movie.data]
+        }
+    } else {
+        currentLocalItems = [movie.data]
+    }
+        
+    window.localStorage.setItem("test", JSON.stringify(currentLocalItems))
+
+}
+
 // Functions available to use in other files
 const exports = {
     getGenres,
@@ -85,6 +116,8 @@ const exports = {
     getOneMovie,
     getOneActor,
     searchMovie,
+    getLatestViewedMovies,
+    addToLatestViewedMovies,
 }
 
 export default exports

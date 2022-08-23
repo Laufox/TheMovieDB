@@ -4,6 +4,7 @@ import FilterBox from '../components/FilterBox'
 import LoadingSpinner from '../components/LoadingSpinner'
 import useGenres from '../hooks/useGenres'
 import { Outlet } from 'react-router-dom'
+import PrevSeenMovies from '../components/PrevSeenMovies'
 
 const HomePage = () => {
 
@@ -36,6 +37,9 @@ const HomePage = () => {
 							<Outlet />
 							<aside>
 								latest seen movies will be here
+								{
+									<PrevSeenMovies />
+								}
 							</aside>
 						</main>
 					</div>

@@ -3,23 +3,18 @@ import useGetMovie from "../hooks/useGetMovie"
 import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup'
 import { useEffect } from "react"
+import useAddToLatestViewedMovies from "../hooks/useAddToLatestViewedMovies"
 
-const MoviePage = ({onAddMovieToLatest}) => {
+const MoviePage = () => {
 
     const { id } = useParams()
     const { data: movie, error, isError, isLoading } = useGetMovie(id)
 
+    const addToLatest = useAddToLatestViewedMovies()
+
     useEffect( () => {
 
-        let currentLocalItems = JSON.parse(window.localStorage.getItem("test"))
-        console.log(currentLocalItems)
-        if (currentLocalItems) {
-            currentLocalItems = [...currentLocalItems, id]
-        } else {
-            currentLocalItems = [id]
-        }
-        
-        window.localStorage.setItem("test", JSON.stringify(currentLocalItems))
+        addToLatest.mutate(id)
 
     }, [] )
 
