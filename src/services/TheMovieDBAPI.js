@@ -29,7 +29,7 @@ const discoverGenre = async (genreId, page = 1) => {
 
 const discoverLatest = async (page = 1) => {
 
-    const respons = await axios.get(`/discover/movie?api_key=${apiKey}&include_adult=false&sort_by=release_date.desc&page=${page}`)
+    const respons = await axios.get(`/movie/now_playing?api_key=${apiKey}&include_adult=false&page=${page}`)
 
     return respons.data
 
@@ -70,6 +70,14 @@ const getOneActor = async (id) => {
 const searchMovie = async(query, page) => {
 
     const respons = await axios.get(`/search/movie?api_key=${apiKey}&include_adult=false&query=${query}&page=${page}`)
+
+    return respons.data
+
+}
+
+const getTrendingMovies = async (timeFrame, page = 1) => {
+
+    const respons = await axios.get(`/trending/movie/${timeFrame}?api_key=${apiKey}&include_adult=false&page=${page}`)
 
     return respons.data
 
@@ -118,6 +126,7 @@ const exports = {
     searchMovie,
     getLatestViewedMovies,
     addToLatestViewedMovies,
+    getTrendingMovies,
 }
 
 export default exports

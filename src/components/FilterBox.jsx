@@ -44,6 +44,14 @@ const FilterBox = ( { genres } ) => {
                     <Link to={`/toprated?page=1`}>Top Rated</Link>
                 </ListGroup.Item>
 
+                <ListGroup.Item>
+                    <Link to={`/trending/day?page=1`}>Trending 24h</Link>
+                </ListGroup.Item>
+
+                <ListGroup.Item>
+                    <Link to={`/trending/week?page=1`}>Trending 7d</Link>
+                </ListGroup.Item>
+
             </ListGroup>
 
             <Form onSubmit={handleSubmit}>

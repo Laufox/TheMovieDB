@@ -10,6 +10,7 @@ import TopRated from './pages/TopRated'
 import MoviePage from './pages/MoviePage'
 import ActorPage from './pages/ActorPage'
 import SearchPage from './pages/SearchPage'
+import TrendingPage from './pages/TrendingPage'
 
 function App() {
 	return (
@@ -25,6 +26,7 @@ function App() {
 					<Route path='/movie/:id' element={<MoviePage />} />
 					<Route path='/actor/:id' element={<ActorPage />} />
 					<Route path='/search' element={<SearchPage />} />
+					<Route path='/trending/:timeframe' element={<TrendingPage />} />
 				</Route>
 				<Route path="*" element={<NotFound />} />
 			</Routes>
