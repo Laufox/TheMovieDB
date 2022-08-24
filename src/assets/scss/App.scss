@@ -48,13 +48,26 @@
 
 }
 
+.main-outlet {
+
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+
+    h2 {
+        width: 100%;
+    }
+
+}
+
 .movie-container {
     display: flex;
     flex-flow: row wrap;
+    justify-content: space-around;
     gap: 10px;
 
     .movie-container-item {
-        width: 24%;
+        width: 80%;
 
         .card-body {
 
@@ -79,6 +92,37 @@
             }
 
         }
+
+        @media screen and (min-width: 768px) {
+            width: 49%;
+        }
+
+        @media screen and (min-width: 992px) {
+            width: 32%;
+        }
+
+        @media screen and (min-width: 1200px) {
+            width: 24%;
+        }
         
+    }
+}
+
+.pagination-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0;
+
+    .page-info {
+        font-weight: bold;
+        font-size: 1.2rem;
+        height: 100%;
+    }
+
+    .pagination-button {
+        padding: 0.6rem;
     }
 }
