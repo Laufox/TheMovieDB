@@ -65,6 +65,16 @@ const MoviePage = () => {
                                             <span>|</span>
                                             <span>{movie.vote_average}</span>
                                         </div>
+
+                                        <div className="movie-info-genres">
+
+                                            {
+                                                movie.genres.map( genre => (
+                                                    <Link to={`/genre/${genre.id}/${genre.name}`} >#{ genre.name }</Link>
+                                                ) )
+                                            }
+
+                                        </div>
                                         
                                     </div>
 
@@ -95,8 +105,6 @@ const MoviePage = () => {
                                     <main>
                                         {
                                             movie.similar.results.map( relMovie => (
-
-                                                //<p key={relMovie.id}>{relMovie.title}</p>
 
                                                 <Card key={relMovie.id} className='movie-related-card'>
 
