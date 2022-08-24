@@ -34,9 +34,11 @@ const HomePage = () => {
 							<FilterBox genres={genres.genres} />
 						</header>
 						<main className='main-outlet'>
-							<Outlet />
+							<div className='outlet-wrapper'>
+								<Outlet />
+							</div>
+							
 							<aside>
-								latest seen movies will be here
 								{
 									<PrevSeenMovies />
 								}

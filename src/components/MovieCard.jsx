@@ -9,7 +9,7 @@ const MovieCard = ( { movie } ) => {
             <Card.Body className="card-body">
                                                 
                 <Card.Title className="movie-heading">{movie.title}</Card.Title>
-                <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
+                <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} />
                 <Card.Text className="additional-info">
                     <span>{movie.release_date.slice(0, movie.release_date.indexOf('-'))}</span>
                     <span>|</span>
