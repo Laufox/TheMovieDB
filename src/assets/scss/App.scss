@@ -1,8 +1,51 @@
 @import 'bootstrap/scss/bootstrap';
 
-.list-group {
+.filterbox {
+
+    border: 1px solid black;
+    padding: 0.8rem 1.5rem;
+    background-color: rgb(0, 30, 31);
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column;
+
+    .list-group {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 0.5rem;
+        margin: 20px 0;
+        
+        .list-group-item {
+            margin: 2px;
+            border-radius: 5px;
+            background-color: rgb(228, 224, 218);
+
+            a {
+                color: #094bad;
+            }
+        }
+
+    }
+
+    .genre-list .list-group-item{
+        background-color: rgb(222, 209, 135);
+        margin: 4px 0;
+    }
+
+    .popular-list .list-group-item{
+        background-color: rgba(177, 222, 135, 1);
+    }
+
+    .movie-search {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 1rem;
+        margin: 20px 0;
+
+        .form-control {
+            max-width: 550px;
+        }
+    }
+
 }
 
 .movie-container {

@@ -18,9 +18,9 @@ const FilterBox = ( { genres } ) => {
     }
     
     return (
-        <>
+        <div className='filterbox'>
         
-            <ListGroup horizontal>
+            <ListGroup className='genre-list'>
                 {
                     genres.map(genre => (
                         <ListGroup.Item key={genre.id}>
@@ -30,7 +30,7 @@ const FilterBox = ( { genres } ) => {
                 }
             </ListGroup>
 
-            <ListGroup>
+            <ListGroup className='popular-list'>
 
                 <ListGroup.Item>
                     <Link to={`/new?page=1`}>Latest</Link>
@@ -54,12 +54,17 @@ const FilterBox = ( { genres } ) => {
 
             </ListGroup>
 
-            <Form onSubmit={handleSubmit}>
-                <Form.Control required type='text' onChange={ e => setSearchInput(e.target.value) } ref={ searchRef } />
+            <Form onSubmit={handleSubmit} className='movie-search'>
+                <Form.Control 
+                    required type='text' 
+                    onChange={ e => setSearchInput(e.target.value) } 
+                    ref={ searchRef }
+                    placeholder='🔍 Search movie'
+                />
                 <Button type='submit'>Search</Button>
             </Form>
 
-        </>
+        </div>
     )
 
 }
