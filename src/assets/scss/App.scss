@@ -173,3 +173,86 @@
     }
 
 }
+
+.movie-card-one {
+
+    .movie-info {
+        display: flex;
+        flex-flow: row wrap;
+
+        .info-wrapper {
+
+            .movie-info-additional {
+
+                display: flex;
+                justify-content: space-evenly;
+    
+                span {
+                    font-size: 1.4rem;
+                }
+
+            }
+        }
+
+    }
+
+    .cast {
+
+        .list-group {
+
+            .list-group-item {
+
+                img {
+                    width: 32px;
+                    height: 48px;
+                    margin-right: 1.5rem;
+                }
+                
+            }
+
+        }
+
+    }
+
+    .movie-related {
+
+        main {
+
+            display: flex;
+            flex-flow: row wrap;
+            gap: 1rem;
+
+            .movie-related-card {
+
+                @media screen and (min-width: 768px) {
+                
+                    width: 48%;
+    
+                }
+
+                @media screen and (min-width: 1200px) {
+                
+                    width: 31%;
+    
+                }
+
+                .movie-related-card-body {
+
+                    display: flex;
+                    flex-flow: column;
+                    gap: 1rem;
+    
+                    .card-title {
+
+                        flex-grow: 1;
+
+                    }
+                }
+
+            }
+
+        }
+
+    }
+
+}
