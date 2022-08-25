@@ -1,6 +1,7 @@
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
+import defaultMovieIMG from '../assets/img/camera.png'
 
 const MovieCard = ( { movie } ) => {
 
@@ -9,9 +10,9 @@ const MovieCard = ( { movie } ) => {
             <Card.Body className="card-body">
                                                 
                 <Card.Title className="movie-heading">{movie.title}</Card.Title>
-                <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} />
+                <Card.Img variant="top" src={ movie.backdrop_path ? `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}` : defaultMovieIMG } />
                 <Card.Text className="additional-info">
-                    <span>{movie.release_date.slice(0, movie.release_date.indexOf('-'))}</span>
+                    <span>{ movie.release_date ? movie.release_date.slice(0, movie.release_date.indexOf('-')) : 'xxxx'}</span>
                     <span>|</span>
                     <span>{movie.original_language.toUpperCase()}</span>
                     <span>|</span>

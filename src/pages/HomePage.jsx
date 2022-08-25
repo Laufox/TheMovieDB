@@ -20,11 +20,7 @@ const HomePage = () => {
 			}
 			
 			{
-				isError && <AlertBox variant={'danger'} message={error.message} />
-			}
-
-			{
-				// genres && genres.genres.map( genre => <p key={genre.id}>{genre.name}</p> )
+				isError && <AlertBox variant={'danger'} headingMessage={'Failed to load'} bodyMessage={error.message} />
 			}
 
 			{

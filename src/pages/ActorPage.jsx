@@ -4,6 +4,8 @@ import useGetActor from '../hooks/useGetActor'
 import Card from 'react-bootstrap/Card'
 import defaultMovieIMG from '../assets/img/camera.png'
 import defaultProfileIMG from '../assets/img/user.png'
+import LoadingSpinner from '../components/LoadingSpinner'
+import AlertBox from '../components/AlertBox'
 
 const ActorPage = () => {
 
@@ -15,15 +17,11 @@ const ActorPage = () => {
         <>
 
             {
-                isLoading && (
-                    <div>Resource is loading</div>
-                )
+                isLoading && <LoadingSpinner />
             }
 
             {
-                isError && (
-                    <div>There was an error</div>
-                )
+                isError && <AlertBox variant={'danger'} headingMessage={'Failed to load'} bodyMessage={error.message} />
             }
 
             {

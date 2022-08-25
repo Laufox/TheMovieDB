@@ -7,6 +7,8 @@ import useAddToLatestViewedMovies from "../hooks/useAddToLatestViewedMovies"
 import defaultProfileIMG from '../assets/img/user.png'
 import defaultMovieIMG from '../assets/img/camera.png'
 import Button from 'react-bootstrap/Button'
+import LoadingSpinner from "../components/LoadingSpinner"
+import AlertBox from "../components/AlertBox"
 
 
 const MoviePage = () => {
@@ -27,15 +29,11 @@ const MoviePage = () => {
         <>
 
             {
-                isLoading && (
-                    <div>Loading data</div>
-                )
+                isLoading && <LoadingSpinner />
             }
 
             {
-                isError && (
-                    <div>Something went wrong</div>
-                )
+                isError && <AlertBox variant={'danger'} headingMessage={'Failed to load'} bodyMessage={error.message} />
             }
 
             {

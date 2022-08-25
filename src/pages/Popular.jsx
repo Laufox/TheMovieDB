@@ -4,6 +4,8 @@ import Container from "react-bootstrap/Container"
 import { useState, useEffect } from "react"
 import Pagination from "../components/Pagination"
 import MovieCard from "../components/MovieCard"
+import LoadingSpinner from "../components/LoadingSpinner"
+import AlertBox from "../components/AlertBox"
 
 const Popular = () => {
 
@@ -27,15 +29,11 @@ const Popular = () => {
             <h2>Showing most popular movies </h2>
 
             {
-                isLoading && (
-                    <p>Loading data</p>
-                )
+                isLoading && <LoadingSpinner />
             }
 
             {
-                isError && (
-                    <p>Something went wrong</p>
-                )
+                isError && <AlertBox variant={'danger'} headingMessage={'Failed to load'} bodyMessage={error.message} />
             }
 
             {

@@ -4,6 +4,8 @@ import useSearch from "../hooks/useSearch"
 import MovieCard from "../components/MovieCard"
 import Container from 'react-bootstrap/Container'
 import Pagination from "../components/Pagination"
+import AlertBox from "../components/AlertBox"
+import LoadingSpinner from "../components/LoadingSpinner"
 
 const SearchPage = () => {
 
@@ -29,15 +31,11 @@ const SearchPage = () => {
             <h2>Showing search results for { query } </h2>
 
             {
-                isLoading && (
-                    <p>Loading data</p>
-                )
+                isLoading && <LoadingSpinner />
             }
 
             {
-                isError && (
-                    <p>Something went wrong</p>
-                )
+                isError && <AlertBox variant={'danger'} headingMessage={'Failed to load'} bodyMessage={error.message} />
             }
 
             {
@@ -45,15 +43,31 @@ const SearchPage = () => {
                     
                     <Container>
 
-                        <div className="movie-container">
-                            {
-                                searchResult.results.map( movie => (
-                                    <MovieCard key={movie.id} movie={movie} />
-                                ) )
-                            }
-                        </div>
+                        {
+                            !!searchResult.total_results && (
 
-                        <Pagination onPageClick = { handlePageClick } currentPage = { page } totalPages = { searchResult.total_pages } />
+                                <>
+                                <div className="movie-container">
+
+                                    {
+                                        searchResult.results.map( movie => (
+                                            <MovieCard key={movie.id} movie={movie} />
+                                        ) )
+                                    }
+
+                                </div>
+
+                                <Pagination onPageClick = { handlePageClick } currentPage = { page } totalPages = { searchResult.total_pages } />
+                                </>
+                            )
+                        }
+                        
+                        {
+                            !searchResult.total_pages && (
+                                <AlertBox variant={'warning'} headingMessage={'No matches'} bodyMessage={'Your search gave no results'} />
+                            )
+                        }
+                        
 
                     </Container>
                     

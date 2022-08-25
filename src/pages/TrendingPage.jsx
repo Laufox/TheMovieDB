@@ -4,6 +4,8 @@ import { useState, useEffect } from "react"
 import Pagination from "../components/Pagination"
 import MovieCard from "../components/MovieCard"
 import useGetTrendingMovies from "../hooks/useGetTrendingMovies"
+import LoadingSpinner from "../components/LoadingSpinner"
+import AlertBox from "../components/AlertBox"
 
 const TrendingPage = () => {
 
@@ -28,15 +30,11 @@ const TrendingPage = () => {
             <h2>Showing trending movies for the {timeframe} </h2>
 
             {
-                isLoading && (
-                    <p>Loading data</p>
-                )
+                isLoading && <LoadingSpinner />
             }
 
             {
-                isError && (
-                    <p>Something went wrong</p>
-                )
+                isError && <AlertBox variant={'danger'} headingMessage={'Failed to load'} bodyMessage={error.message} />
             }
 
             {
