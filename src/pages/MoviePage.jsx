@@ -5,6 +5,7 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import { useEffect, useState } from "react"
 import useAddToLatestViewedMovies from "../hooks/useAddToLatestViewedMovies"
 import defaultProfileIMG from '../assets/img/user.png'
+import defaultMovieIMG from '../assets/img/camera.png'
 import Button from 'react-bootstrap/Button'
 
 
@@ -48,7 +49,7 @@ const MoviePage = () => {
                                 <section className="movie-info">
 
                                     <div className="img-wrapper">
-                                        <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
+                                        <Card.Img variant="top" src={ movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : defaultMovieIMG } />
                                     </div>
                                     
                                     <div className="info-wrapper">
@@ -70,7 +71,7 @@ const MoviePage = () => {
 
                                             {
                                                 movie.genres.map( genre => (
-                                                    <Link to={`/genre/${genre.id}/${genre.name}`} >#{ genre.name }</Link>
+                                                    <Link to={`/genre/${genre.id}/${genre.name}`} key={genre.id} >#{ genre.name }</Link>
                                                 ) )
                                             }
 
@@ -111,7 +112,7 @@ const MoviePage = () => {
                                                     <Card.Body className="movie-related-card-body">
 
                                                         <Card.Title>{relMovie.title}</Card.Title>
-                                                        <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500/${relMovie.backdrop_path}`} />
+                                                        <Card.Img variant="top" src={ relMovie.backdrop_path ? `https://image.tmdb.org/t/p/w500/${relMovie.backdrop_path}` : defaultMovieIMG } />
                                                         <Button as={Link} to={`/movie/${relMovie.id}`}>Go to</Button>
 
                                                     </Card.Body>

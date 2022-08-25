@@ -174,7 +174,7 @@
 
 }
 
-.movie-card-one {
+.movie-card-one, .actor-card-one {
 
     .movie-info {
         display: flex;
@@ -229,7 +229,7 @@
 
     }
 
-    .cast {
+    .cast, .actor-movies {
 
         .list-group {
 

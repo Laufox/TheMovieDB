@@ -2,6 +2,7 @@ import useGetLatestViewedMovies from "../hooks/useGetLatestViewedMovies"
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
+import defaultMovieIMG from '../assets/img/camera.png'
 
 const PrevSeenMovies = () => {
 
@@ -17,7 +18,7 @@ const PrevSeenMovies = () => {
                         <Card.Body className="pastmovie-body">
 
                             <Card.Title>{movie.title}</Card.Title>
-                            <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} />
+                            <Card.Img variant="top" src={ movie.backdrop_path ? `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}` : defaultMovieIMG } />
                             <Button as={Link} to={`/movie/${movie.id}`}>Go to</Button>
 
                         </Card.Body>
