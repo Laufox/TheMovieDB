@@ -37,7 +37,7 @@ const discoverLatest = async (page = 1) => {
 
 const discoverPopular = async (page = 1) => {
 
-    const respons = await axios.get(`/discover/movie?api_key=${apiKey}&include_adult=false&sort_by=popularity.desc&page=${page}`)
+    const respons = await axios.get(`/movie/popular?api_key=${apiKey}&include_adult=false&page=${page}`)
 
     return respons.data
 
@@ -98,7 +98,7 @@ const addToLatestViewedMovies = async (movieId) => {
         return
     }
 
-    let movie = await axios.get(`/movie/${movieId}?api_key=${apiKey}&append_to_response=credits,similar`)
+    let movie = await axios.get(`/movie/${movieId}?api_key=${apiKey}`)
 
     if (currentLocalItems) {
         if (currentLocalItems.length >= 10) {
