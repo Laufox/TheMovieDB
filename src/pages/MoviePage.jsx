@@ -22,7 +22,7 @@ const MoviePage = () => {
 
         addToLatest.mutate(id)
 
-    }, [] )
+    }, [movie] )
 
     return (
 
