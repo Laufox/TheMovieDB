@@ -5,10 +5,10 @@
  import { useQuery } from 'react-query'
  import TheMovieDB from '../services/TheMovieDBAPI'
  
- const useDiscoverPopular = (page) => {
+ const useGetPopular = (page) => {
 
-    return useQuery( ['discoverPopular', page], () => TheMovieDB.discoverPopular(page) )
+    return useQuery( ['discoverPopular', page], () => TheMovieDB.getPopular(page) )
 
  }
  
- export default useDiscoverPopular
+ export default useGetPopular

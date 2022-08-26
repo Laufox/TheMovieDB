@@ -5,10 +5,10 @@
  import { useQuery } from 'react-query'
  import TheMovieDB from '../services/TheMovieDBAPI'
  
- const useDiscoverLatest = (page) => {
+ const useGetTopRated = (page) => {
 
-    return useQuery( ['discoverLatest', page], () => TheMovieDB.discoverLatest(page) )
+    return useQuery( ['discoverTopRated', page], () => TheMovieDB.getTopRated(page) )
 
  }
  
- export default useDiscoverLatest
+ export default useGetTopRated

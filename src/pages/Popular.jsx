@@ -1,5 +1,5 @@
 import { useSearchParams } from "react-router-dom"
-import useDiscoverPopular from "../hooks/useDiscoverPopular"
+import useGetPopular from "../hooks/useGetPopular"
 import Container from "react-bootstrap/Container"
 import { useState, useEffect } from "react"
 import Pagination from "../components/Pagination"
@@ -11,7 +11,7 @@ const Popular = () => {
 
     const [searchParams, setSearchparams] = useSearchParams()
     const [page, setPage] = useState(Number(searchParams.get("page")))
-    const { data: movies, error, isError, isLoading } = useDiscoverPopular(page)
+    const { data: movies, error, isError, isLoading } = useGetPopular(page)
 
     const handlePageClick = (increment) => {
         setSearchparams({ page: page + increment })

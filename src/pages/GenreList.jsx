@@ -1,5 +1,5 @@
 import { useParams, useSearchParams } from "react-router-dom"
-import useDiscoverByGenre from "../hooks/useDiscoverByGenre"
+import useGetMoviesByGenre from "../hooks/useGetMoviesByGenre"
 import Container from "react-bootstrap/Container"
 import { useState, useEffect } from "react"
 import Pagination from "../components/Pagination"
@@ -12,7 +12,7 @@ const GenreList = () => {
     const [searchParams, setSearchparams] = useSearchParams()
     const [page, setPage] = useState(Number(searchParams.get("page")))
     const { id, genre } = useParams()
-    const { data: movies, error, isError, isLoading } = useDiscoverByGenre(id, page)
+    const { data: movies, error, isError, isLoading } = useGetMoviesByGenre(id, page)
 
     const handlePageClick = (increment) => {
         setSearchparams({ page: page + increment })

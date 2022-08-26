@@ -2,14 +2,14 @@ import Container from 'react-bootstrap/Container'
 import AlertBox from '../components/AlertBox'
 import FilterBox from '../components/FilterBox'
 import LoadingSpinner from '../components/LoadingSpinner'
-import useGenres from '../hooks/useGenres'
+import useGetGenres from '../hooks/useGetGenres'
 import { Outlet } from 'react-router-dom'
 import PrevSeenMovies from '../components/PrevSeenMovies'
 
 const HomePage = () => {
 
 	// Get query data from useGenre hook
-	const { data: genres, error, isError, isLoading } = useGenres()
+	const { data: genres, error, isError, isLoading } = useGetGenres()
 
 	return (
 		<Container fluid className="py-3">

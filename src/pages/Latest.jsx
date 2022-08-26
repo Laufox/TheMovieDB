@@ -1,5 +1,5 @@
 import { useSearchParams } from "react-router-dom"
-import useDiscoverLatest from "../hooks/useDiscoverLatest"
+import useGetLatest from "../hooks/useGetLatest"
 import Container from "react-bootstrap/Container"
 import { useState, useEffect } from "react"
 import Pagination from "../components/Pagination"
@@ -11,7 +11,7 @@ const Latest = () => {
 
     const [searchParams, setSearchparams] = useSearchParams()
     const [page, setPage] = useState(Number(searchParams.get("page")))
-    const { data: movies, error, isError, isLoading } = useDiscoverLatest(page)
+    const { data: movies, error, isError, isLoading } = useGetLatest(page)
 
     const handlePageClick = (increment) => {
         setSearchparams({ page: page + increment })

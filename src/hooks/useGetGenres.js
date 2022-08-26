@@ -5,8 +5,8 @@
 import { useQuery } from 'react-query'
 import TheMovieDB from '../services/TheMovieDBAPI'
 
-const useGenres = () => {
+const useGetGenres = () => {
     return useQuery('genres', TheMovieDB.getGenres)
 }
 
-export default useGenres
+export default useGetGenres

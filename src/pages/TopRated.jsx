@@ -1,5 +1,5 @@
 import { useSearchParams } from "react-router-dom"
-import useDiscoverTopRated from "../hooks/useDiscoverTopRated"
+import useGetTopRated from "../hooks/useGetTopRated"
 import Container from "react-bootstrap/Container"
 import { useState, useEffect } from "react"
 import Pagination from "../components/Pagination"
@@ -11,7 +11,7 @@ const TopRated = () => {
 
     const [searchParams, setSearchparams] = useSearchParams()
     const [page, setPage] = useState(Number(searchParams.get("page")))
-    const { data: movies, error, isError, isLoading } = useDiscoverTopRated(page)
+    const { data: movies, error, isError, isLoading } = useGetTopRated(page)
 
     const handlePageClick = (increment) => {
         setSearchparams({ page: page + increment })

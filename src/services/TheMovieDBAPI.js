@@ -19,7 +19,7 @@ const getGenres = async () => {
 /**
  * Function that returns array of movies from a specific genre
  */
-const discoverGenre = async (genreId, page = 1) => {
+const getMoviesByGenre = async (genreId, page = 1) => {
 
     const respons = await axios.get(`/discover/movie?api_key=${apiKey}&include_adult=false&with_genres=${genreId}&page=${page}`)
 
@@ -27,7 +27,7 @@ const discoverGenre = async (genreId, page = 1) => {
 
 }
 
-const discoverLatest = async (page = 1) => {
+const getLatest = async (page = 1) => {
 
     const respons = await axios.get(`/movie/now_playing?api_key=${apiKey}&include_adult=false&page=${page}`)
 
@@ -35,7 +35,7 @@ const discoverLatest = async (page = 1) => {
 
 }
 
-const discoverPopular = async (page = 1) => {
+const getPopular = async (page = 1) => {
 
     const respons = await axios.get(`/movie/popular?api_key=${apiKey}&include_adult=false&page=${page}`)
 
@@ -43,7 +43,7 @@ const discoverPopular = async (page = 1) => {
 
 }
 
-const discoverTopRated = async (page=1) => {
+const getTopRated = async (page=1) => {
 
     const respons = await axios.get(`/movie/top_rated?api_key=${apiKey}&page=${page}`)
 
@@ -117,10 +117,10 @@ const addToLatestViewedMovies = async (movieId) => {
 // Functions available to use in other files
 const exports = {
     getGenres,
-    discoverGenre,
-    discoverLatest,
-    discoverPopular,
-    discoverTopRated,
+    getMoviesByGenre,
+    getLatest,
+    getPopular,
+    getTopRated,
     getOneMovie,
     getOneActor,
     searchMovie,
