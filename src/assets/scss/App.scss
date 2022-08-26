@@ -1,7 +1,11 @@
 @import 'bootstrap/scss/bootstrap';
 
-h1 {
-    margin: 3rem 0;
+.h1-link {
+    color: black;
+
+    h1 {
+        margin: 3rem 0;
+    }
 }
 
 .filterbox-outlet-wrapper {

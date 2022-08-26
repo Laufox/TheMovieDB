@@ -3,7 +3,7 @@ import PrevSeenMovies from '../components/PrevSeenMovies'
 import AlertBox from '../components/AlertBox'
 import FilterBox from '../components/FilterBox'
 import LoadingSpinner from '../components/LoadingSpinner'
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import Container from 'react-bootstrap/Container'
 
 const HomePage = () => {
@@ -13,7 +13,7 @@ const HomePage = () => {
 
 	return (
 		<Container fluid="md" className="py-3">
-			<h1>The Movie DB Collection</h1>
+			<Link to={''} className='h1-link'><h1>The Movie DB Collection</h1></Link>
 
 			{
 				isLoading && <LoadingSpinner />
