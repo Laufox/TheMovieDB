@@ -1,5 +1,5 @@
 /**
- * Hook used to get data about movies by genre from the API service
+ * Hook used to get data about top rated movies from the API service
  */
 
  import { useQuery } from 'react-query'

@@ -1,8 +1,5 @@
-import { Routes, Route } from 'react-router-dom'
-import Navigation from './components/Navigation'
 import HomePage from './pages/HomePage'
 import NotFound from './pages/NotFound'
-import './assets/scss/App.scss'
 import GenreList from './pages/GenreList'
 import Latest from './pages/Latest'
 import Popular from './pages/Popular'
@@ -11,6 +8,9 @@ import MoviePage from './pages/MoviePage'
 import ActorPage from './pages/ActorPage'
 import SearchPage from './pages/SearchPage'
 import TrendingPage from './pages/TrendingPage'
+import Navigation from './components/Navigation'
+import './assets/scss/App.scss'
+import { Routes, Route } from 'react-router-dom'
 
 function App() {
 	return (

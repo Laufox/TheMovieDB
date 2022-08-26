@@ -1,3 +1,7 @@
+/**
+ * Hook used to get data from the API service when a user search for a movie
+ */
+
 import { useQuery } from 'react-query'
 import TheMovieDB from '../services/TheMovieDBAPI'
 

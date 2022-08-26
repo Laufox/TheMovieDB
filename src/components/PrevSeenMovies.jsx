@@ -1,13 +1,14 @@
 import useGetLatestViewedMovies from "../hooks/useGetLatestViewedMovies"
-import Card from 'react-bootstrap/Card'
-import Button from 'react-bootstrap/Button'
-import { Link } from 'react-router-dom'
-import defaultMovieIMG from '../assets/img/camera.png'
 import LoadingSpinner from "./LoadingSpinner"
 import AlertBox from "./AlertBox"
+import defaultMovieIMG from '../assets/img/camera.png'
+import { Link } from 'react-router-dom'
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 
 const PrevSeenMovies = () => {
 
+    // Get query data from useGetLatestViewedMovies hook
     const {data: pastMovies, error, isError, isLoading} = useGetLatestViewedMovies()
 
     return (
@@ -29,6 +30,7 @@ const PrevSeenMovies = () => {
                     <h3>Recently viewed:</h3>
 
                     {
+                        // Loop through movies to render each of them 
                         pastMovies.map(movie => (
                             <Card key={movie.id} className='pastmovie-card'>
 

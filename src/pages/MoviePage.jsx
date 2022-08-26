@@ -1,23 +1,26 @@
-import { Link, useParams } from "react-router-dom"
-import useGetMovie from "../hooks/useGetMovie"
-import Card from 'react-bootstrap/Card'
-import ListGroup from 'react-bootstrap/ListGroup'
-import { useEffect, useState } from "react"
 import useAddToLatestViewedMovies from "../hooks/useAddToLatestViewedMovies"
-import defaultProfileIMG from '../assets/img/user.png'
-import defaultMovieIMG from '../assets/img/camera.png'
-import Button from 'react-bootstrap/Button'
+import useGetMovie from "../hooks/useGetMovie"
 import LoadingSpinner from "../components/LoadingSpinner"
 import AlertBox from "../components/AlertBox"
-
+import defaultProfileIMG from '../assets/img/user.png'
+import defaultMovieIMG from '../assets/img/camera.png'
+import { useEffect } from "react"
+import { Link, useParams } from "react-router-dom"
+import Card from 'react-bootstrap/Card'
+import ListGroup from 'react-bootstrap/ListGroup'
+import Button from 'react-bootstrap/Button'
 
 const MoviePage = () => {
 
+    // Get dynamic URL params from useParams
     const { id } = useParams()
+    // Get query data from useGetMovie hook
     const { data: movie, error, isError, isLoading } = useGetMovie(id)
 
+    // Mutation variable to keep track of movie pages previously visited by user
     const addToLatest = useAddToLatestViewedMovies()
 
+    // Add movie to history
     useEffect( () => {
 
         addToLatest.mutate(id)
@@ -68,6 +71,7 @@ const MoviePage = () => {
                                         <div className="movie-info-genres">
 
                                             {
+                                                // Render names of tagged genres
                                                 movie.genres.map( genre => (
                                                     <Link to={`/genre/${genre.id}/${genre.name}`} key={genre.id} >#{ genre.name }</Link>
                                                 ) )
@@ -85,6 +89,7 @@ const MoviePage = () => {
 
                                     <ListGroup>
                                         {
+                                            // Render actors featured in movie
                                             movie.credits.cast.map( (actor) => (
                                                 <ListGroup.Item key={actor.id} as={Link} to={`/actor/${actor.id}`} >
                                                     <img src={actor.profile_path ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}` : defaultProfileIMG} />
@@ -103,6 +108,7 @@ const MoviePage = () => {
                                     </header>
                                     <main>
                                         {
+                                            // Render related movies
                                             movie.similar.results.map( relMovie => (
 
                                                 <Card key={relMovie.id} className='movie-related-card'>

@@ -1,3 +1,7 @@
+/**
+ * Hook used to get data about trending movies from the API service
+ */
+
 import { useQuery } from 'react-query'
 import TheMovieDB from '../services/TheMovieDBAPI'
 

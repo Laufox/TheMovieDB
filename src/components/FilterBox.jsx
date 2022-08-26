@@ -1,18 +1,21 @@
-import ListGroup from 'react-bootstrap/ListGroup'
+import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import ListGroup from 'react-bootstrap/ListGroup'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import { useState, useRef } from 'react'
 
 const FilterBox = ( { genres } ) => {
 
+    // State for search query typed in search form
     const [searchInput, setSearchInput] = useState('')
-    const searchRef = useRef()
+    // Call useNavigate for possibillity to redirect to other pages
     const navigate = useNavigate()
 
     const handleSubmit = (e) => {
 
+        // Prevent default browser behaviour
         e.preventDefault()
+        // Redirect user to page for search result
         navigate(`/search?query=${searchInput}&page=1`)
 
     }
@@ -22,6 +25,7 @@ const FilterBox = ( { genres } ) => {
         
             <ListGroup className='genre-list'>
                 {
+                    // Render existing genres
                     genres.map(genre => (
                         <ListGroup.Item key={genre.id}>
                             <Link to={`/genre/${genre.id}/${genre.name.replace(/\s/g, '-').toLowerCase()}?page=1`}>{genre.name}</Link>
@@ -58,7 +62,6 @@ const FilterBox = ( { genres } ) => {
                 <Form.Control 
                     required type='text' 
                     onChange={ e => setSearchInput(e.target.value) } 
-                    ref={ searchRef }
                     placeholder='🔍 Search movie'
                 />
                 <Button type='submit'>Search</Button>

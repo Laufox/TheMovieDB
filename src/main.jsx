@@ -1,9 +1,10 @@
+import App from './App'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
-import App from './App'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
+// Define settings for query client
 const queryClient = new QueryClient({
 	defaultOptions: {
 		queries: {

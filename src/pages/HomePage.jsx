@@ -1,14 +1,14 @@
-import Container from 'react-bootstrap/Container'
+import useGetGenres from '../hooks/useGetGenres'
+import PrevSeenMovies from '../components/PrevSeenMovies'
 import AlertBox from '../components/AlertBox'
 import FilterBox from '../components/FilterBox'
 import LoadingSpinner from '../components/LoadingSpinner'
-import useGetGenres from '../hooks/useGetGenres'
 import { Outlet } from 'react-router-dom'
-import PrevSeenMovies from '../components/PrevSeenMovies'
+import Container from 'react-bootstrap/Container'
 
 const HomePage = () => {
 
-	// Get query data from useGenre hook
+	// Get query data from useGetGenres hook
 	const { data: genres, error, isError, isLoading } = useGetGenres()
 
 	return (

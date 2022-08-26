@@ -1,15 +1,17 @@
-import ListGroup from 'react-bootstrap/ListGroup'
-import { useParams, Link } from 'react-router-dom'
 import useGetActor from '../hooks/useGetActor'
-import Card from 'react-bootstrap/Card'
-import defaultMovieIMG from '../assets/img/camera.png'
-import defaultProfileIMG from '../assets/img/user.png'
 import LoadingSpinner from '../components/LoadingSpinner'
 import AlertBox from '../components/AlertBox'
+import defaultMovieIMG from '../assets/img/camera.png'
+import defaultProfileIMG from '../assets/img/user.png'
+import { useParams, Link } from 'react-router-dom'
+import Card from 'react-bootstrap/Card'
+import ListGroup from 'react-bootstrap/ListGroup'
 
 const ActorPage = () => {
 
+    // Get dynamic URL params from useParams
     const { id } = useParams()
+    // Get query data from useGetMovie hook
     const { data: actor, error, isError, isLoading } = useGetActor(id)
 
     return (
@@ -59,6 +61,7 @@ const ActorPage = () => {
 
                                 <ListGroup>
                                     {
+                                        // Renders movies actor casts in
                                         actor.movie_credits.cast.map( (movie) => (
                                             <ListGroup.Item key={movie.id} as={Link} to={`/movie/${movie.id}`} >
                                                 <img src={movie.backdrop_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : defaultMovieIMG} />

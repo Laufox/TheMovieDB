@@ -1,7 +1,7 @@
+import defaultMovieIMG from '../assets/img/camera.png'
+import { Link } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-import { Link } from 'react-router-dom'
-import defaultMovieIMG from '../assets/img/camera.png'
 
 const MovieCard = ( { movie } ) => {
 
