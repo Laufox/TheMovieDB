@@ -162,14 +162,25 @@
         align-self: flex-start;
     }
 
-    .pastmovie-card {
+    .movie-related-card {
 
-        .pastmovie-body {
+        .movie-related-card-body {
             display: flex;
             flex-flow: column;
             gap: 1rem;
         }
         
+    }
+
+}
+
+.movie-info-additional {
+
+    display: flex;
+    justify-content: space-evenly;
+
+    span {
+        font-size: 1.4rem;
     }
 
 }

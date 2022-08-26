@@ -2,13 +2,14 @@ import useAddToLatestViewedMovies from "../hooks/useAddToLatestViewedMovies"
 import useGetMovie from "../hooks/useGetMovie"
 import LoadingSpinner from "../components/LoadingSpinner"
 import AlertBox from "../components/AlertBox"
+import MovieAdditionalInfo from "../components/MovieAdditionalInfo"
 import defaultProfileIMG from '../assets/img/user.png'
 import defaultMovieIMG from '../assets/img/camera.png'
 import { useEffect } from "react"
 import { Link, useParams } from "react-router-dom"
 import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup'
-import Button from 'react-bootstrap/Button'
+import MovieCardTiny from "../components/MovieCardTiny"
 
 const MoviePage = () => {
 
@@ -60,13 +61,7 @@ const MoviePage = () => {
                                             { movie.overview }
                                         </div>
 
-                                        <div className="movie-info-additional">
-                                            <span>{movie.release_date.slice(0, movie.release_date.indexOf('-'))}</span>
-                                            <span>|</span>
-                                            <span>{movie.original_language.toUpperCase()}</span>
-                                            <span>|</span>
-                                            <span>{movie.vote_average}</span>
-                                        </div>
+                                        <MovieAdditionalInfo date={ movie.release_date } language={ movie.original_language } score={ movie.vote_average } />
 
                                         <div className="movie-info-genres">
 
@@ -111,17 +106,7 @@ const MoviePage = () => {
                                             // Render related movies
                                             movie.similar.results.map( relMovie => (
 
-                                                <Card key={relMovie.id} className='movie-related-card'>
-
-                                                    <Card.Body className="movie-related-card-body">
-
-                                                        <Card.Title>{relMovie.title}</Card.Title>
-                                                        <Card.Img variant="top" src={ relMovie.backdrop_path ? `https://image.tmdb.org/t/p/w500/${relMovie.backdrop_path}` : defaultMovieIMG } />
-                                                        <Button as={Link} to={`/movie/${relMovie.id}`}>Go to</Button>
-
-                                                    </Card.Body>
-                                                    
-                                                </Card>
+                                                <MovieCardTiny movie={ relMovie } key={ relMovie.id } />
 
                                             ) )
                                         }
