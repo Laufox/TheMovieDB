@@ -57,9 +57,10 @@ const MoviePage = () => {
                                     <div className="info-wrapper">
 
                                         <h3>About</h3>
-                                        <div className="movie-info-about">
+
+                                        <p className="movie-info-about">
                                             { movie.overview }
-                                        </div>
+                                        </p>
 
                                         <MovieAdditionalInfo date={ movie.release_date } language={ movie.original_language } score={ movie.vote_average } />
 

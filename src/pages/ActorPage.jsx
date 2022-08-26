@@ -43,11 +43,11 @@ const ActorPage = () => {
 
                                     <h3>About</h3>
 
-                                    <Card.Text>
+                                    <p className="movie-info-about">
                                         { actor.biography }
-                                    </Card.Text>
+                                    </p>
 
-                                    <p>
+                                    <p className='born'>
                                         Born: { actor.birthday }
                                     </p>
 

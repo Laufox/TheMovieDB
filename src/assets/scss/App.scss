@@ -43,12 +43,14 @@
     }
 
     .toggle-genre-list {
+
         color: white;
         font-size: 2rem;
         position: absolute;
         top: 1.5rem;
         right: 0.5rem;
         cursor: pointer;
+
     }
 
     .popular-list .list-group-item{
@@ -221,12 +223,21 @@
 
 .movie-card-one, .actor-card-one {
 
+    border: none;
+
+    .card-title {
+        font-size: 1.5rem;
+    }
+
     .movie-info {
         display: flex;
         flex-flow: row wrap;
         gap: 1rem;
 
         .img-wrapper {
+
+            margin-top: 1rem;
+            margin-bottom: 1rem;
 
             @media screen and (min-width: 992px) {
 
@@ -238,10 +249,25 @@
 
         .info-wrapper {
 
+            .movie-info-about {
+
+                margin: 1.5rem 0;
+                font-size: 1.2rem;
+
+            }
+
+            .born {
+
+                font-weight: 600;
+                font-size: 1.3rem;
+
+            }
+
             .movie-info-additional {
 
                 display: flex;
                 justify-content: space-evenly;
+                max-width: 500px;
     
                 span {
                     font-size: 1.4rem;
@@ -258,7 +284,7 @@
                 a {
 
                     padding: 0.3rem 0.5rem;
-                    border: 1px solid rgba(0, 0, 0, 0.2);
+                    border: 1px solid rgba(0, 0, 0, 0.4);
                     border-radius: 8px;
                     font-style: italic;
                     text-decoration: none;
@@ -275,6 +301,8 @@
     }
 
     .cast, .actor-movies {
+
+        margin: 3rem 0;
 
         .list-group {
 
@@ -311,6 +339,10 @@
 
     .movie-related {
 
+        header {
+            margin-bottom: 1rem;
+        }
+
         main {
 
             display: flex;
@@ -319,17 +351,20 @@
 
             .movie-related-card {
 
-                @media screen and (min-width: 768px) {
-                
-                    width: 48%;
-    
-                }
+                background-color: rgb(180, 233, 215);
+                width: 220px;
 
-                @media screen and (min-width: 1200px) {
+                // @media screen and (min-width: 768px) {
                 
-                    width: 31%;
+                //     width: 48%;
     
-                }
+                // }
+
+                // @media screen and (min-width: 1200px) {
+                
+                //     width: 31%;
+    
+                // }
 
                 .movie-related-card-body {
 
