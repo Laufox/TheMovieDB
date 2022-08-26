@@ -25,7 +25,7 @@ const HomePage = () => {
 
 			{
 				genres && (
-					<div>
+					<div className='filterbox-outlet-wrapper'>
 						<header>
 							<FilterBox genres={genres.genres} />
 						</header>
