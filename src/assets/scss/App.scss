@@ -12,9 +12,11 @@
 
     border: 1px solid black;
     padding: 0.8rem 1.5rem;
+    padding-right: 3rem;
     background-color: rgb(0, 30, 31);
     display: flex;
     flex-flow: column;
+    position: relative;
 
     .list-group {
         display: flex;
@@ -29,6 +31,7 @@
 
             a {
                 color: #094bad;
+                font-size: 1.2rem;
             }
         }
 
@@ -37,6 +40,15 @@
     .genre-list .list-group-item{
         background-color: rgb(222, 209, 135);
         margin: 4px 0;
+    }
+
+    .toggle-genre-list {
+        color: white;
+        font-size: 2rem;
+        position: absolute;
+        top: 1.5rem;
+        right: 0.5rem;
+        cursor: pointer;
     }
 
     .popular-list .list-group-item{
@@ -337,5 +349,11 @@
         }
 
     }
+
+}
+
+.hidden.list-group {
+
+    display: none;
 
 }
