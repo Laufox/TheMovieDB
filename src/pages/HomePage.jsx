@@ -12,7 +12,7 @@ const HomePage = () => {
 	const { data: genres, error, isError, isLoading } = useGetGenres()
 
 	return (
-		<Container fluid className="py-3">
+		<Container fluid="md" className="py-3">
 			<h1>The Movie DB Collection</h1>
 
 			{
