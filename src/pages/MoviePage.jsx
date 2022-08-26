@@ -68,7 +68,7 @@ const MoviePage = () => {
                                             {
                                                 // Render names of tagged genres
                                                 movie.genres.map( genre => (
-                                                    <Link to={`/genre/${genre.id}/${genre.name}`} key={genre.id} >#{ genre.name }</Link>
+                                                    <Link to={`/genre/${genre.id}/${genre.name.replace(/\s/g, '-').toLowerCase()}?page=1`} key={genre.id} >#{ genre.name }</Link>
                                                 ) )
                                             }
 
