@@ -18,6 +18,18 @@ const getGenres = async () => {
 }
 
 /**
+ * Function that returns all movies
+ */
+
+const getAllMovies = async (page = 1) => {
+
+    const respons = await axios.get(`/discover/movie?api_key=${apiKey}&include_adult=false&page=${page}`)
+
+    return respons.data
+
+}
+
+/**
  * Function that returns array of movies from a specific genre
  */
 const getMoviesByGenre = async (genreId, page = 1) => {
@@ -159,6 +171,7 @@ const addToLatestViewedMovies = async (movieId) => {
 // Functions available to use in other files
 const exports = {
     getGenres,
+    getAllMovies,
     getMoviesByGenre,
     getLatest,
     getPopular,

@@ -36,6 +36,7 @@ h1 {
 
             a {
                 color: #094bad;
+                color: rgb(255, 255, 255);
                 font-size: 1.2rem;
             }
         }
@@ -43,7 +44,7 @@ h1 {
     }
 
     .genre-list .list-group-item{
-        background-color: rgb(222, 209, 135);
+        background-color: rgb(143, 129, 51);
         margin: 4px 0;
     }
 
@@ -59,7 +60,7 @@ h1 {
     }
 
     .popular-list .list-group-item{
-        background-color: rgba(177, 222, 135, 1);
+        background-color: rgb(99, 148, 53);
     }
 
     .movie-search {
@@ -71,6 +72,13 @@ h1 {
         .form-control {
             max-width: 550px;
         }
+    }
+
+    .btn-show-all {
+
+        align-self: flex-start;
+        margin: 0.5rem 0;
+
     }
 
 }
