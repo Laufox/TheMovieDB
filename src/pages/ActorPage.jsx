@@ -64,7 +64,7 @@ const ActorPage = () => {
                                         // Renders movies actor casts in
                                         actor.movie_credits.cast.map( (movie) => (
                                             <ListGroup.Item key={movie.id} as={Link} to={`/movie/${movie.id}`} >
-                                                <img src={movie.backdrop_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : defaultMovieIMG} />
+                                                <img src={movie.backdrop_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : defaultMovieIMG} loading='lazy' />
                                                 <span>{movie.title}</span>
                                             </ListGroup.Item>
                                         ) )

@@ -12,7 +12,7 @@ const MovieCardTiny = ( { movie } ) => {
             <Card.Body className="movie-related-card-body">
 
                 <Card.Title>{movie.title}</Card.Title>
-                <Card.Img variant="top" src={ movie.backdrop_path ? `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}` : defaultMovieIMG } />
+                <Card.Img variant="top" src={ movie.backdrop_path ? `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}` : defaultMovieIMG } loading={'lazy'} />
                 <Button as={Link} to={`/movie/${movie.id}`}>Go to</Button>
 
             </Card.Body>
