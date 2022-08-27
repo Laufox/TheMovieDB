@@ -31,7 +31,7 @@ const Popular = () => {
     return (
 
         <>
-            <h2>Showing most popular movies </h2>
+            <h2>Showing popular movies </h2>
 
             {
                 isLoading && <LoadingSpinner />
@@ -45,6 +45,8 @@ const Popular = () => {
                 movies && (
                     
                     <Container>
+
+                        <Pagination onPageClick = { handlePageClick } currentPage = { page } totalPages = { movies.total_pages } />
                         
                         <div className="movie-container">
                             {

@@ -46,6 +46,8 @@ const GenreList = () => {
                     
                     <Container>
 
+                        <Pagination onPageClick = { handlePageClick } currentPage = { page } totalPages = { movies.total_pages } />
+
                         <div className="movie-container">
                             {
                                 // Loop through movies to render each of them

@@ -76,7 +76,12 @@ const FilterBox = ( { genres } ) => {
                 <Button type='submit'>Search</Button>
             </Form>
 
-            <Button as={Link} to={'/'} variant='primary' className='btn-show-all' >Show all movies</Button>
+            <ListGroup className='show-all-movies'>
+                <ListGroup.Item>
+                    <Link to={`/`}>Show all movies</Link>
+                </ListGroup.Item>
+            </ListGroup>
+            {/* <Button as={Link} to={'/'} variant='primary' className='btn-show-all' >Show all movies</Button> */}
 
         </div>
     )

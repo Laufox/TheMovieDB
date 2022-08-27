@@ -31,7 +31,7 @@ const Latest = () => {
     return (
 
         <>
-            <h2>Showing most recent movies </h2>
+            <h2>Showing current theatre movies </h2>
 
             {
                 isLoading && <LoadingSpinner />
@@ -45,6 +45,8 @@ const Latest = () => {
                 movies && (
                     
                     <Container>
+
+                        <Pagination onPageClick = { handlePageClick } currentPage = { page } totalPages = { movies.total_pages } />
                         
                         <div className="movie-container">
                             {

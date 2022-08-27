@@ -47,6 +47,8 @@ const TrendingPage = () => {
                 movies && (
                     
                     <Container>
+
+                        <Pagination onPageClick = { handlePageClick } currentPage = { page } totalPages = { movies.total_pages } />
                         
                         <div className="movie-container">
                             {

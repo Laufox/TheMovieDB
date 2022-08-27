@@ -31,7 +31,7 @@ const TopRated = () => {
     return (
 
         <>
-            <h2>Showing the highest rated movies </h2>
+            <h2>Showing the top rated movies </h2>
 
             {
                 isLoading && <LoadingSpinner />
@@ -45,6 +45,8 @@ const TopRated = () => {
                 movies && (
                     
                     <Container>
+
+                        <Pagination onPageClick = { handlePageClick } currentPage = { page } totalPages = { movies.total_pages } />
                         
                         <div className="movie-container">
                             {
