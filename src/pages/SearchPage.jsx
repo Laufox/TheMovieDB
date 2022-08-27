@@ -54,6 +54,8 @@ const SearchPage = () => {
                             !!searchResult.total_results && (
 
                                 <>
+                                <Pagination onPageClick = { handlePageClick } currentPage = { page } totalPages = { searchResult.total_pages } />
+
                                 <div className="movie-container">
 
                                     {

@@ -81,7 +81,6 @@ const FilterBox = ( { genres } ) => {
                     <Link to={`/`}>Show all movies</Link>
                 </ListGroup.Item>
             </ListGroup>
-            {/* <Button as={Link} to={'/'} variant='primary' className='btn-show-all' >Show all movies</Button> */}
 
         </div>
     )
