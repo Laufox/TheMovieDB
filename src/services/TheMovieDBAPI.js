@@ -153,10 +153,15 @@ const addToLatestViewedMovies = async (movieId) => {
     if (currentLocalItems) {
         // If current list array has no more space, replace first item with new movie
         if (currentLocalItems.length >= 10) {
+            
+            for (let i = currentLocalItems.length - 1; i > 0; i--) {
+                currentLocalItems[i] = currentLocalItems[i - 1]
+            }
             currentLocalItems[0] = movie.data
+
         } else {
             // Otherwise, attach new movie to the other movies in list
-            currentLocalItems = [...currentLocalItems, movie.data]
+            currentLocalItems = [movie.data, ...currentLocalItems]
         }
     } else {
         // If current list is empty, apply the new movie to it
