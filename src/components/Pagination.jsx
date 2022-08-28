@@ -13,7 +13,7 @@ const Pagination = ( { onPageClick, currentPage, totalPages } ) => {
                 Prev page
             </Button>
 
-            <div className='page-info'>Page { currentPage }/{ totalPages <= 500 ? totalPages : 500 }</div>
+            <div className='page-info'>{ currentPage }/{ totalPages <= 500 ? totalPages : 500 }</div>
 
             <Button 
                 onClick={()=>{

@@ -10,6 +10,7 @@ import { Link, useParams } from "react-router-dom"
 import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup'
 import MovieCardTiny from "../components/MovieCardTiny"
+import { useState } from "react"
 
 const MoviePage = () => {
 
@@ -20,6 +21,9 @@ const MoviePage = () => {
 
     // Mutation variable to keep track of movie pages previously visited by user
     const addToLatest = useAddToLatestViewedMovies()
+
+    const [isCastOpen, setIsCastOpen] = useState(true)
+    const [isSimilarOpen, setIsSimilarOpen] = useState(true)
 
     // Add movie to history
     useEffect( () => {
@@ -81,37 +85,51 @@ const MoviePage = () => {
                                 
                                 <section className="cast">
 
-                                    <h3>Cast</h3>
+                                    <div className="cast-heading-wrapper">
+                                        <span onClick={ () => { setIsCastOpen( prevState => !prevState ) } } >{ isCastOpen ? '⬆️' : '⬇️' }</span>
+                                        <h3>Cast</h3>
+                                    </div>
 
-                                    <ListGroup>
-                                        {
-                                            // Render actors featured in movie
-                                            movie.credits.cast.map( (actor) => (
-                                                <ListGroup.Item key={actor.id} as={Link} to={`/actor/${actor.id}`} >
-                                                    <img src={actor.profile_path ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}` : defaultProfileIMG} loading='lazy' />
-                                                    <span>{actor.name}</span>
-                                                </ListGroup.Item>
-                                            ) )
-                                        }
-                                    </ListGroup>
+                                    {
+                                        isCastOpen && (
+                                            <ListGroup>
+                                                {
+                                                    // Render actors featured in movie
+                                                    movie.credits.cast.map( (actor) => (
+                                                        <ListGroup.Item key={actor.id} as={Link} to={`/actor/${actor.id}`} >
+                                                            <img src={actor.profile_path ? `https://image.tmdb.org/t/p/w500/${actor.profile_path}` : defaultProfileIMG} loading='lazy' />
+                                                            <span>{actor.name}</span>
+                                                        </ListGroup.Item>
+                                                    ) )
+                                                }
+                                            </ListGroup>
+                                        )
+                                    }
+                                    
 
                                 </section>
                                 
                                 <section className="movie-related">
 
-                                    <header>
+                                    <header className="cast-heading-wrapper">
+                                        <span onClick={ () => { setIsSimilarOpen( prevState => !prevState ) } } >{ isSimilarOpen ? '⬆️' : '⬇️' }</span>
                                         <h3>Related movies</h3>
                                     </header>
-                                    <main>
-                                        {
-                                            // Render related movies
-                                            movie.similar.results.map( relMovie => (
+                                    
+                                    {
+                                        isSimilarOpen && (
+                                            <main>
+                                                {
+                                                    // Render related movies
+                                                    movie.similar.results.map( relMovie => (
 
-                                                <MovieCardTiny movie={ relMovie } key={ relMovie.id } />
+                                                        <MovieCardTiny movie={ relMovie } key={ relMovie.id } />
 
-                                            ) )
-                                        }
-                                    </main>
+                                                    ) )
+                                                }
+                                            </main>
+                                        )
+                                    }
 
                                 </section>
                                 

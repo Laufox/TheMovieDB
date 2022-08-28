@@ -6,6 +6,7 @@ import defaultProfileIMG from '../assets/img/user.png'
 import { useParams, Link } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup'
+import { useState } from 'react'
 
 const ActorPage = () => {
 
@@ -13,6 +14,8 @@ const ActorPage = () => {
     const { id } = useParams()
     // Get query data from useGetMovie hook
     const { data: actor, error, isError, isLoading } = useGetActor(id)
+
+    const [isMoviesOpen, setIsMoviesOpen] = useState(true)
 
     return (
 
@@ -57,19 +60,26 @@ const ActorPage = () => {
 
                             <section className='actor-movies'>
 
-                                <h3>Movies</h3>
+                                <div className='cast-heading-wrapper'>
+                                    <span onClick={ () => { setIsMoviesOpen( prevState => !prevState ) } } >{ isMoviesOpen ? '⬆️' : '⬇️' }</span>
+                                    <h3>Movies</h3>
+                                </div>          
 
-                                <ListGroup>
-                                    {
-                                        // Renders movies actor casts in
-                                        actor.movie_credits.cast.map( (movie) => (
-                                            <ListGroup.Item key={movie.id} as={Link} to={`/movie/${movie.id}`} >
-                                                <img src={movie.backdrop_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : defaultMovieIMG} loading='lazy' />
-                                                <span>{movie.title}</span>
-                                            </ListGroup.Item>
-                                        ) )
-                                    }
-                                </ListGroup>
+                                {
+                                    isMoviesOpen && (
+                                        <ListGroup>
+                                            {
+                                                // Renders movies actor casts in
+                                                actor.movie_credits.cast.map( (movie) => (
+                                                    <ListGroup.Item key={movie.id} as={Link} to={`/movie/${movie.id}`} >
+                                                        <img src={movie.backdrop_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : defaultMovieIMG} loading='lazy' />
+                                                        <span>{movie.title}</span>
+                                                    </ListGroup.Item>
+                                                ) )
+                                            }
+                                        </ListGroup>
+                                    )
+                                }
 
                             </section>
                             

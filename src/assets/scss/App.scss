@@ -104,8 +104,12 @@
     }
 
     aside {
-        min-width: 150px;
-        max-width: 180px;
+
+        .pastmovies {
+            // min-width: 150px;
+            // max-width: 180px;
+        }
+        
     }
 
 }
@@ -118,7 +122,7 @@
 
     .movie-container-item {
 
-        width: 280px;
+        width: 250px;
 
         .card-body {
 
@@ -171,11 +175,18 @@
     display: flex;
     flex-flow: column;
     align-items: center;
-    gap: 1rem;
+    // gap: 1rem;
     border-left: 1px solid black;
+    min-width: 111px;
     max-width: 350px;
     padding: 0.5rem;
     margin: 3.5rem 0;
+
+    span {
+        font-size: 1.7rem;
+        align-self: flex-start;
+        cursor: pointer;
+    }
 
     h3 {
         align-self: flex-start;
@@ -185,6 +196,8 @@
     .movie-related-card {
 
         background-color: antiquewhite;
+        margin: 0.5rem 0;
+        max-width: 130px;
 
         .movie-related-card-body {
             display: flex;
@@ -215,6 +228,21 @@
 .movie-card-one, .actor-card-one {
 
     border: none;
+
+    .cast-heading-wrapper {
+
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+
+        span {
+            font-size: 1.7rem;
+            cursor: pointer;
+            align-self: flex-start;
+        }
+
+    }
 
     .card-title {
         font-size: 1.5rem;
