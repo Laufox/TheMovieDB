@@ -10,7 +10,7 @@ const Pagination = ( { onPageClick, currentPage, totalPages } ) => {
                 disabled = { currentPage <= 1 }
                 className='pagination-button'
             >
-                Prev page
+                Prev
             </Button>
 
             <div className='page-info'>{ currentPage }/{ totalPages <= 500 ? totalPages : 500 }</div>
@@ -22,7 +22,7 @@ const Pagination = ( { onPageClick, currentPage, totalPages } ) => {
                 disabled = { currentPage >= (totalPages <= 500 ? totalPages : 500) }
                 className='pagination-button'
             >
-                Next page
+                Next
             </Button>
         </div>
     )
