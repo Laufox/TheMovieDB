@@ -167,16 +167,10 @@
     flex-flow: column;
     align-items: center;
     border-left: 1px solid black;
-    min-width: 111px;
-    max-width: 350px;
+    min-width: 180px;
+    max-width: 180px;
     padding: 0.5rem;
     margin: 3.5rem 0;
-
-    span {
-        font-size: 1.7rem;
-        align-self: flex-start;
-        cursor: pointer;
-    }
 
     h3 {
         align-self: flex-start;
@@ -187,7 +181,6 @@
 
         background-color: antiquewhite;
         margin: 0.5rem 0;
-        max-width: 130px;
 
         .movie-related-card-body {
             display: flex;
@@ -247,6 +240,7 @@
 
             margin-top: 1rem;
             margin-bottom: 1rem;
+            max-width: 500px;
 
             @media screen and (min-width: 992px) {
 
